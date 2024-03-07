@@ -12,6 +12,7 @@
 		218BF69A2B8FE04600D33E3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6992B8FE04600D33E3B /* ViewController.swift */; };
 		218BF69F2B8FE04900D33E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 218BF69E2B8FE04900D33E3B /* Assets.xcassets */; };
 		218BF6A22B8FE04900D33E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 218BF6A02B8FE04900D33E3B /* LaunchScreen.storyboard */; };
+		601DF020DA89B22A82391530 /* Pods_LorbyAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		218BF69E2B8FE04900D33E3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		218BF6A12B8FE04900D33E3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		218BF6A32B8FE04900D33E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LorbyAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9DC1F9BCBCEFE1CE9A79896 /* Pods-LorbyAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.debug.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.debug.xcconfig"; sourceTree = "<group>"; };
+		E9C0AC77A17A6F33B596BECF /* Pods-LorbyAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.release.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601DF020DA89B22A82391530 /* Pods_LorbyAuth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				218BF6942B8FE04600D33E3B /* LorbyAuth */,
 				218BF6932B8FE04600D33E3B /* Products */,
+				3A85C2A90A77FDC9DBB7CD74 /* Pods */,
+				80C25703AB341B8A699F55AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +103,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3A85C2A90A77FDC9DBB7CD74 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C9DC1F9BCBCEFE1CE9A79896 /* Pods-LorbyAuth.debug.xcconfig */,
+				E9C0AC77A17A6F33B596BECF /* Pods-LorbyAuth.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		80C25703AB341B8A699F55AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +128,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 218BF6A62B8FE04900D33E3B /* Build configuration list for PBXNativeTarget "LorbyAuth" */;
 			buildPhases = (
+				1006A9542EFB6782DD00F568 /* [CP] Check Pods Manifest.lock */,
 				218BF68E2B8FE04600D33E3B /* Sources */,
 				218BF68F2B8FE04600D33E3B /* Frameworks */,
 				218BF6902B8FE04600D33E3B /* Resources */,
+				93337B0F35598D345601FF6D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +187,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1006A9542EFB6782DD00F568 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LorbyAuth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		93337B0F35598D345601FF6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		218BF68E2B8FE04600D33E3B /* Sources */ = {
@@ -307,6 +376,7 @@
 		};
 		218BF6A72B8FE04900D33E3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C9DC1F9BCBCEFE1CE9A79896 /* Pods-LorbyAuth.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -333,6 +403,7 @@
 		};
 		218BF6A82B8FE04900D33E3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9C0AC77A17A6F33B596BECF /* Pods-LorbyAuth.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
