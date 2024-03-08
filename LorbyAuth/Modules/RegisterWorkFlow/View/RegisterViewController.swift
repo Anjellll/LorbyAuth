@@ -25,6 +25,13 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setUp()
+        registerView.nextButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func enterButtonTapped() {
+        let viewModel = MailSendViewModel()
+        let viewController = MailSendViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func setUp() {

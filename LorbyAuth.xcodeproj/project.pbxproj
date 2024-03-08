@@ -21,6 +21,9 @@
 		218BF6E22B9A6CC200D33E3B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6E12B9A6CC200D33E3B /* MainViewModel.swift */; };
 		218BF6E62B9A6DE000D33E3B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6E52B9A6DE000D33E3B /* MainView.swift */; };
 		218BF6EA2B9B0F6100D33E3B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6E92B9B0F6100D33E3B /* RegisterView.swift */; };
+		218BF6F52B9B1E6100D33E3B /* MailSendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6F42B9B1E6100D33E3B /* MailSendViewController.swift */; };
+		218BF6F72B9B1E7700D33E3B /* MailSendViewModel .swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6F62B9B1E7700D33E3B /* MailSendViewModel .swift */; };
+		218BF6F92B9B1E8F00D33E3B /* MailSendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6F82B9B1E8F00D33E3B /* MailSendView.swift */; };
 		601DF020DA89B22A82391530 /* Pods_LorbyAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,9 @@
 		218BF6E12B9A6CC200D33E3B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		218BF6E52B9A6DE000D33E3B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		218BF6E92B9B0F6100D33E3B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		218BF6F42B9B1E6100D33E3B /* MailSendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendViewController.swift; sourceTree = "<group>"; };
+		218BF6F62B9B1E7700D33E3B /* MailSendViewModel .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MailSendViewModel .swift"; sourceTree = "<group>"; };
+		218BF6F82B9B1E8F00D33E3B /* MailSendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailSendView.swift; sourceTree = "<group>"; };
 		49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LorbyAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DC1F9BCBCEFE1CE9A79896 /* Pods-LorbyAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.debug.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		E9C0AC77A17A6F33B596BECF /* Pods-LorbyAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.release.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +116,7 @@
 		218BF6C52B9A554600D33E3B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				218BF6EF2B9B1E0D00D33E3B /* MailSendWorkFlow */,
 				218BF6DC2B9A6C8C00D33E3B /* MainWorkFlow */,
 				218BF6D42B9A6A5100D33E3B /* RegisterWorkFlow */,
 				218BF6C72B9A5E0000D33E3B /* AuthorizationWorkFlow */,
@@ -127,7 +134,7 @@
 		218BF6C72B9A5E0000D33E3B /* AuthorizationWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
-				218BF6CC2B9A5F1C00D33E3B /* UIComponents */,
+				218BF6CD2B9A5F2800D33E3B /* CustomView */,
 				218BF6C92B9A5E4200D33E3B /* ViewModel */,
 				218BF6C82B9A5E3D00D33E3B /* View */,
 			);
@@ -148,14 +155,6 @@
 				218BF6CA2B9A5EBA00D33E3B /* AuthorizationViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		218BF6CC2B9A5F1C00D33E3B /* UIComponents */ = {
-			isa = PBXGroup;
-			children = (
-				218BF6CD2B9A5F2800D33E3B /* CustomView */,
-			);
-			path = UIComponents;
 			sourceTree = "<group>";
 		};
 		218BF6CD2B9A5F2800D33E3B /* CustomView */ = {
@@ -185,7 +184,7 @@
 		218BF6D42B9A6A5100D33E3B /* RegisterWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
-				218BF6E72B9B0F4600D33E3B /* UIComponents */,
+				218BF6E82B9B0F5700D33E3B /* CustomView */,
 				218BF6D62B9A6A7400D33E3B /* ViewModel */,
 				218BF6D52B9A6A6D00D33E3B /* View */,
 			);
@@ -211,7 +210,7 @@
 		218BF6DC2B9A6C8C00D33E3B /* MainWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
-				218BF6E32B9A6DAA00D33E3B /* UIComponents */,
+				218BF6E42B9A6DBD00D33E3B /* CustomView */,
 				218BF6DE2B9A6CA200D33E3B /* ViewModel */,
 				218BF6DD2B9A6C9B00D33E3B /* View */,
 			);
@@ -234,14 +233,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		218BF6E32B9A6DAA00D33E3B /* UIComponents */ = {
-			isa = PBXGroup;
-			children = (
-				218BF6E42B9A6DBD00D33E3B /* CustomView */,
-			);
-			path = UIComponents;
-			sourceTree = "<group>";
-		};
 		218BF6E42B9A6DBD00D33E3B /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,18 +241,44 @@
 			path = CustomView;
 			sourceTree = "<group>";
 		};
-		218BF6E72B9B0F4600D33E3B /* UIComponents */ = {
-			isa = PBXGroup;
-			children = (
-				218BF6E82B9B0F5700D33E3B /* CustomView */,
-			);
-			path = UIComponents;
-			sourceTree = "<group>";
-		};
 		218BF6E82B9B0F5700D33E3B /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
 				218BF6E92B9B0F6100D33E3B /* RegisterView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		218BF6EF2B9B1E0D00D33E3B /* MailSendWorkFlow */ = {
+			isa = PBXGroup;
+			children = (
+				218BF6F32B9B1E4500D33E3B /* CustomView */,
+				218BF6F22B9B1E3100D33E3B /* ViewModel */,
+				218BF6F02B9B1E2400D33E3B /* View */,
+			);
+			path = MailSendWorkFlow;
+			sourceTree = "<group>";
+		};
+		218BF6F02B9B1E2400D33E3B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				218BF6F42B9B1E6100D33E3B /* MailSendViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		218BF6F22B9B1E3100D33E3B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				218BF6F62B9B1E7700D33E3B /* MailSendViewModel .swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		218BF6F32B9B1E4500D33E3B /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				218BF6F82B9B1E8F00D33E3B /* MailSendView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -397,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				218BF6F52B9B1E6100D33E3B /* MailSendViewController.swift in Sources */,
 				218BF6CB2B9A5EBA00D33E3B /* AuthorizationViewModel.swift in Sources */,
 				218BF69A2B8FE04600D33E3B /* AuthorizationViewController.swift in Sources */,
 				218BF6D82B9A6A9000D33E3B /* RegisterViewController.swift in Sources */,
@@ -406,6 +424,8 @@
 				218BF6962B8FE04600D33E3B /* AppDelegate.swift in Sources */,
 				218BF6E62B9A6DE000D33E3B /* MainView.swift in Sources */,
 				218BF6E02B9A6CB800D33E3B /* MainViewController.swift in Sources */,
+				218BF6F72B9B1E7700D33E3B /* MailSendViewModel .swift in Sources */,
+				218BF6F92B9B1E8F00D33E3B /* MailSendView.swift in Sources */,
 				218BF6EA2B9B0F6100D33E3B /* RegisterView.swift in Sources */,
 				218BF6CF2B9A5F3500D33E3B /* AuthorizationView.swift in Sources */,
 				218BF6982B8FE04600D33E3B /* SceneDelegate.swift in Sources */,
