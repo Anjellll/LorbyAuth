@@ -28,10 +28,6 @@ class AuthorizationView: UIView {
     let userNameTF: CustomTextField = {
        let textField = CustomTextField()
         textField.placeholder = "Введи туда-сюда логин"
-        let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
-        textField.leftView = leftView
-        textField.leftViewMode = .always
-        textField.returnKeyType = .search
         return textField
     }()
     
@@ -39,10 +35,6 @@ class AuthorizationView: UIView {
         let textField = CustomTextField()
         textField.placeholder = "Пароль (тоже введи)"
         textField.isSecureTextEntry = true
-        let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
-        textField.leftView = leftView
-        textField.leftViewMode = .always
-        textField.returnKeyType = .search
         
         let button = UIButton(type: .custom)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -16, bottom: 0, right: 0)

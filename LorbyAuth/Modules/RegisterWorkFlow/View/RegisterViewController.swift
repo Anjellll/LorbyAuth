@@ -10,6 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     private var viewModel: RegisterViewModel
+    let registerView = RegisterView()
     
      init(viewModel: RegisterViewModel) {
          self.viewModel = viewModel
@@ -22,6 +23,15 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
+        setUp()
+    }
+    
+    private func setUp() {
+        view.addSubview(registerView)
+        
+        registerView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
