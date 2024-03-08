@@ -20,6 +20,7 @@
 		218BF6E02B9A6CB800D33E3B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6DF2B9A6CB800D33E3B /* MainViewController.swift */; };
 		218BF6E22B9A6CC200D33E3B /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6E12B9A6CC200D33E3B /* MainViewModel.swift */; };
 		218BF6E62B9A6DE000D33E3B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6E52B9A6DE000D33E3B /* MainView.swift */; };
+		218BF6EA2B9B0F6100D33E3B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF6E92B9B0F6100D33E3B /* RegisterView.swift */; };
 		601DF020DA89B22A82391530 /* Pods_LorbyAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		218BF6DF2B9A6CB800D33E3B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		218BF6E12B9A6CC200D33E3B /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		218BF6E52B9A6DE000D33E3B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		218BF6E92B9B0F6100D33E3B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LorbyAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DC1F9BCBCEFE1CE9A79896 /* Pods-LorbyAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.debug.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		E9C0AC77A17A6F33B596BECF /* Pods-LorbyAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.release.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		218BF6D42B9A6A5100D33E3B /* RegisterWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
+				218BF6E72B9B0F4600D33E3B /* UIComponents */,
 				218BF6D62B9A6A7400D33E3B /* ViewModel */,
 				218BF6D52B9A6A6D00D33E3B /* View */,
 			);
@@ -243,6 +246,22 @@
 			isa = PBXGroup;
 			children = (
 				218BF6E52B9A6DE000D33E3B /* MainView.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		218BF6E72B9B0F4600D33E3B /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				218BF6E82B9B0F5700D33E3B /* CustomView */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		218BF6E82B9B0F5700D33E3B /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				218BF6E92B9B0F6100D33E3B /* RegisterView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -387,6 +406,7 @@
 				218BF6962B8FE04600D33E3B /* AppDelegate.swift in Sources */,
 				218BF6E62B9A6DE000D33E3B /* MainView.swift in Sources */,
 				218BF6E02B9A6CB800D33E3B /* MainViewController.swift in Sources */,
+				218BF6EA2B9B0F6100D33E3B /* RegisterView.swift in Sources */,
 				218BF6CF2B9A5F3500D33E3B /* AuthorizationView.swift in Sources */,
 				218BF6982B8FE04600D33E3B /* SceneDelegate.swift in Sources */,
 			);

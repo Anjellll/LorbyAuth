@@ -20,7 +20,7 @@ class AuthorizationView: UIView {
     let welcomeBackLabel: UILabel = {
         let label = UILabel()
         label.text = "Вэлком Бэк!"
-        label.font = UIFont(name: "Avenir Next", size: 25)
+        label.font = UIFont(name: "Avenir Next Medium", size: 25)
         label.textAlignment = .center
         return label
     }()
@@ -31,7 +31,6 @@ class AuthorizationView: UIView {
         let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
         textField.leftView = leftView
         textField.leftViewMode = .always
-        textField.layer.cornerRadius = 11
         textField.returnKeyType = .search
         return textField
     }()
@@ -43,7 +42,6 @@ class AuthorizationView: UIView {
         let leftView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10.0, height: 2.0))
         textField.leftView = leftView
         textField.leftViewMode = .always
-        textField.layer.cornerRadius = 11
         textField.returnKeyType = .search
         
         let button = UIButton(type: .custom)
