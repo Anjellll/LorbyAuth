@@ -48,7 +48,7 @@ class RegisterView: UIView {
         return textField
     }()
     
-    private let passwordTF: CustomTextField = {
+    lazy var passwordTF: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -116,7 +116,7 @@ class RegisterView: UIView {
         return stack
     }()
     
-    private let repeatPasswordTF: CustomTextField = {
+    lazy var repeatPasswordTF: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -139,6 +139,16 @@ class RegisterView: UIView {
         return textField
     }()
     
+    let passworDontMatch: UILabel = {
+        let label = UILabel()
+        label.text = "Пароли не совпадают"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont(name: "Avenir Next Medium", size: 12)
+        label.textColor = .red
+        label.isHidden = true
+        return label
+    }()
+    
     let nextButton: UIButton = {
         let button = UIButton()
         button.setTitle("Далее", for: .normal)
@@ -157,6 +167,19 @@ class RegisterView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updatePasswordValidationLabels(isLengthValid: Bool, isAlphanumeric: Bool, containsDigit: Bool, containsSpecialCharacter: Bool, passwordsMatch: Bool) {
+        passwordLengthLabel.textColor = isLengthValid ? .green : .red
+        alphanumericLabel.textColor = isAlphanumeric ? .green : .red
+        numericDigitLabel.textColor = containsDigit ? .green : .red
+        specialCharacterLabel.textColor = containsSpecialCharacter ? .green : .red
+        
+        passwordLengthLabel.text = "· От 8 до 15 символов \(isLengthValid ? "✅" : "❌")"
+        alphanumericLabel.text = "· Строчные и прописные буквы \(isAlphanumeric ? "✅" : "❌")"
+        numericDigitLabel.text = "· Минимум 1 цифра \(containsDigit ? "✅" : "❌")"
+        specialCharacterLabel.text = "· Минимум 1 спецсимвол (!, #, $...) \(containsSpecialCharacter ? "✅" : "❌")"
+        passworDontMatch.isHidden = passwordsMatch
     }
 }
 
@@ -194,6 +217,7 @@ extension RegisterView {
         stackView.addArrangedSubview(specialCharacterLabel)
         addSubview(repeatPasswordTF)
         addSubview(nextButton)
+        addSubview(passworDontMatch)
     }
     
     private func setUpConstraints() {
@@ -239,8 +263,15 @@ extension RegisterView {
             make.height.equalTo(52)
         }
         
+        passworDontMatch.snp.makeConstraints { make in
+            make.top.equalTo(repeatPasswordTF.snp.bottom).offset(8)
+            make.leading.equalTo(self).offset(16)
+            make.trailing.equalTo(self).offset(-16)
+            make.height.equalTo(18)
+        }
+        
         nextButton.snp.makeConstraints { make in
-            make.top.equalTo(repeatPasswordTF.snp.bottom).offset(24)
+            make.top.equalTo(repeatPasswordTF.snp.bottom).offset(45)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
             make.height.equalTo(52)

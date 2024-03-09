@@ -127,6 +127,8 @@
 		218BF6C62B9A554D00D33E3B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				218BF6FB2B9CF70B00D33E3B /* NetworkLayer */,
+				218BF6FA2B9CF70000D33E3B /* DTOs */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,6 +283,20 @@
 				218BF6F82B9B1E8F00D33E3B /* MailSendView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		218BF6FA2B9CF70000D33E3B /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
+		218BF6FB2B9CF70B00D33E3B /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 		3A85C2A90A77FDC9DBB7CD74 /* Pods */ = {
