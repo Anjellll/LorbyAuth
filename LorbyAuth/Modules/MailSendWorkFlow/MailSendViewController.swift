@@ -10,7 +10,7 @@ import UIKit
 class MailSendViewController: UIViewController {
     
     private var viewModel: MailSendViewModel
-    let mailSendView = MailSendView()
+    let contentView = MailSendView()
     
      init(viewModel: MailSendViewModel) {
          self.viewModel = viewModel
@@ -24,14 +24,5 @@ class MailSendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setUp()
-    }
-    
-    private func setUp() {
-        view.addSubview(mailSendView)
-        
-        mailSendView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
 }

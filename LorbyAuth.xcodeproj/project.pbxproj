@@ -136,35 +136,11 @@
 		218BF6C72B9A5E0000D33E3B /* AuthorizationWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
-				218BF6CD2B9A5F2800D33E3B /* CustomView */,
-				218BF6C92B9A5E4200D33E3B /* ViewModel */,
-				218BF6C82B9A5E3D00D33E3B /* View */,
-			);
-			path = AuthorizationWorkFlow;
-			sourceTree = "<group>";
-		};
-		218BF6C82B9A5E3D00D33E3B /* View */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6992B8FE04600D33E3B /* AuthorizationViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		218BF6C92B9A5E4200D33E3B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6CA2B9A5EBA00D33E3B /* AuthorizationViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		218BF6CD2B9A5F2800D33E3B /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6CE2B9A5F3500D33E3B /* AuthorizationView.swift */,
 			);
-			path = CustomView;
+			path = AuthorizationWorkFlow;
 			sourceTree = "<group>";
 		};
 		218BF6D02B9A5F8400D33E3B /* Common */ = {
@@ -186,103 +162,31 @@
 		218BF6D42B9A6A5100D33E3B /* RegisterWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
-				218BF6E82B9B0F5700D33E3B /* CustomView */,
-				218BF6D62B9A6A7400D33E3B /* ViewModel */,
-				218BF6D52B9A6A6D00D33E3B /* View */,
+				218BF6D72B9A6A9000D33E3B /* RegisterViewController.swift */,
+				218BF6DA2B9A6AA700D33E3B /* RegisterViewModel.swift */,
+				218BF6E92B9B0F6100D33E3B /* RegisterView.swift */,
 			);
 			path = RegisterWorkFlow;
-			sourceTree = "<group>";
-		};
-		218BF6D52B9A6A6D00D33E3B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				218BF6D72B9A6A9000D33E3B /* RegisterViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		218BF6D62B9A6A7400D33E3B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				218BF6DA2B9A6AA700D33E3B /* RegisterViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		218BF6DC2B9A6C8C00D33E3B /* MainWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
-				218BF6E42B9A6DBD00D33E3B /* CustomView */,
-				218BF6DE2B9A6CA200D33E3B /* ViewModel */,
-				218BF6DD2B9A6C9B00D33E3B /* View */,
-			);
-			path = MainWorkFlow;
-			sourceTree = "<group>";
-		};
-		218BF6DD2B9A6C9B00D33E3B /* View */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6DF2B9A6CB800D33E3B /* MainViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		218BF6DE2B9A6CA200D33E3B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6E12B9A6CC200D33E3B /* MainViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		218BF6E42B9A6DBD00D33E3B /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6E52B9A6DE000D33E3B /* MainView.swift */,
 			);
-			path = CustomView;
-			sourceTree = "<group>";
-		};
-		218BF6E82B9B0F5700D33E3B /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
-				218BF6E92B9B0F6100D33E3B /* RegisterView.swift */,
-			);
-			path = CustomView;
+			path = MainWorkFlow;
 			sourceTree = "<group>";
 		};
 		218BF6EF2B9B1E0D00D33E3B /* MailSendWorkFlow */ = {
 			isa = PBXGroup;
 			children = (
-				218BF6F32B9B1E4500D33E3B /* CustomView */,
-				218BF6F22B9B1E3100D33E3B /* ViewModel */,
-				218BF6F02B9B1E2400D33E3B /* View */,
-			);
-			path = MailSendWorkFlow;
-			sourceTree = "<group>";
-		};
-		218BF6F02B9B1E2400D33E3B /* View */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6F42B9B1E6100D33E3B /* MailSendViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		218BF6F22B9B1E3100D33E3B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6F62B9B1E7700D33E3B /* MailSendViewModel .swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		218BF6F32B9B1E4500D33E3B /* CustomView */ = {
-			isa = PBXGroup;
-			children = (
 				218BF6F82B9B1E8F00D33E3B /* MailSendView.swift */,
 			);
-			path = CustomView;
+			path = MailSendWorkFlow;
 			sourceTree = "<group>";
 		};
 		218BF6FA2B9CF70000D33E3B /* DTOs */ = {

@@ -10,7 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
  
     private var viewModel: MainViewModel
-    let mainView = MainView()
+    let contentView = MainView()
     
      init(viewModel: MainViewModel) {
          self.viewModel = viewModel
@@ -20,8 +20,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setUpUI()
-        mainView.exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
+        contentView.exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -32,13 +31,5 @@ class MainViewController: UIViewController {
         let viewModel = AuthorizationViewModel()
         let viewController = AuthorizationViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    private func setUpUI() {
-        view.addSubview(mainView)
-        
-        mainView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
 }

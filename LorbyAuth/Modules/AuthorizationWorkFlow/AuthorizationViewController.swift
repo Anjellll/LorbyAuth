@@ -10,7 +10,7 @@ import UIKit
 class AuthorizationViewController: UIViewController {
 
     private var viewModel: AuthorizationViewModel
-    let authView = AuthorizationView()
+    let contentView = AuthorizationView()
     
     init(viewModel: AuthorizationViewModel) {
         self.viewModel = viewModel
@@ -21,12 +21,15 @@ class AuthorizationViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func loadView() {
+        view = contentView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setUpUI()
-        authView.createNewAccountButton.addTarget(self, action: #selector(newAccountButtonTapped), for: .touchUpInside)
-        authView.enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
+        contentView.createNewAccountButton.addTarget(self, action: #selector(newAccountButtonTapped), for: .touchUpInside)
+        contentView.enterButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
     }
     
     @objc func newAccountButtonTapped() {
@@ -39,14 +42,6 @@ class AuthorizationViewController: UIViewController {
         let viewModel = MainViewModel()
         let viewController = MainViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
-    }
-
-    private func setUpUI() {
-        view.addSubview(authView)
-        
-        authView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
     }
 }
 

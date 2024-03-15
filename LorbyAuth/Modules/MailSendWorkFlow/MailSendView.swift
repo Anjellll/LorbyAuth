@@ -26,7 +26,6 @@ class MailSendView: UIView {
         label.numberOfLines = 0
         label.font = UIFont(name: "Avenir Next Medium", size: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
     }()
     
@@ -43,7 +42,6 @@ class MailSendView: UIView {
         button.backgroundColor = .clear
         button.setTitleColor(.black, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
         return button
     }()
     

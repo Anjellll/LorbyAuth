@@ -10,7 +10,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     private var viewModel: RegisterViewModel
-    let registerView = RegisterView()
+    let contentView = RegisterView()
     
      init(viewModel: RegisterViewModel) {
          self.viewModel = viewModel
@@ -24,11 +24,10 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setUp()
         configurePasswordValidationHandler()
-        registerView.nextButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
-        registerView.passwordTF.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
-        registerView.repeatPasswordTF.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+        contentView.nextButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
+        contentView.passwordTF.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+        contentView.repeatPasswordTF.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
     }
     
     @objc func enterButtonTapped() {
@@ -38,25 +37,17 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func passwordTextFieldDidChange() {
-        viewModel.validatePassword(registerView.passwordTF.text, repeatedPassword: registerView.repeatPasswordTF.text)
+        viewModel.validatePassword(contentView.passwordTF.text, repeatedPassword: contentView.repeatPasswordTF.text)
     }
     
     private func configurePasswordValidationHandler() {
         viewModel.passwordValidationResult = { isLengthValid, isAlphanumeric, containsDigit, containsSpecialCharacter, passwordsMatch in
-            self.registerView.updatePasswordValidationLabels(
+            self.contentView.updatePasswordValidationLabels(
                 isLengthValid: isLengthValid,
                 isAlphanumeric: isAlphanumeric,
                 containsDigit: containsDigit,
                 containsSpecialCharacter: containsSpecialCharacter,
                 passwordsMatch: passwordsMatch)
-        }
-    }
-    
-    private func setUp() {
-        view.addSubview(registerView)
-        
-        registerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
         }
     }
 }
