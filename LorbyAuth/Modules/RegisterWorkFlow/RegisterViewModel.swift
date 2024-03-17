@@ -8,8 +8,13 @@
 import UIKit
 
 class RegisterViewModel {
+//    var username: String?
+//    var email: String?
+//    var password: String?
+//    var confirmPassword: String?
+
     var passwordValidationResult: ((Bool, Bool, Bool, Bool, Bool) -> Void)?
-    
+
     func validatePassword(_ password: String?, repeatedPassword: String?) {
         guard let password = password, let repeatedPassword = repeatedPassword else {
             notifyValidationResult(false, false, false, false, false)
@@ -26,7 +31,7 @@ class RegisterViewModel {
     }
 
     private func notifyValidationResult(_ isLengthValid: Bool, _ isAlphanumeric: Bool, _ containsDigit: Bool, _ containsSpecialCharacter: Bool, _ passwordsMatch: Bool) {
-    
+
         passwordValidationResult?(isLengthValid, isAlphanumeric, containsDigit, containsSpecialCharacter, passwordsMatch)
     }
 }

@@ -19,7 +19,7 @@ class RegisterView: UIView {
         return label
     }()
     
-    private let mailAddressTF: CustomTextField = {
+    lazy var mailAddressTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -33,7 +33,7 @@ class RegisterView: UIView {
         return textField
     }()
     
-    private let loginTF: CustomTextField = {
+    lazy var loginTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -48,7 +48,7 @@ class RegisterView: UIView {
         return textField
     }()
     
-    lazy var passwordTF: CustomTextField = {
+    lazy var passwordTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -116,7 +116,7 @@ class RegisterView: UIView {
         return stack
     }()
     
-    lazy var repeatPasswordTF: CustomTextField = {
+    lazy var repeatPasswordTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -186,12 +186,12 @@ class RegisterView: UIView {
 extension RegisterView: UITextFieldDelegate {
     @objc func togglePasswordVisible(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        passwordTF.isSecureTextEntry = !passwordTF.isSecureTextEntry
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
     }
     
     @objc func toggleRepeatPasswordVisible(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        repeatPasswordTF.isSecureTextEntry = !repeatPasswordTF.isSecureTextEntry
+        repeatPasswordTextField.isSecureTextEntry = !repeatPasswordTextField.isSecureTextEntry
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -207,15 +207,15 @@ extension RegisterView {
     
     private func setUpSubviews() {
         addSubview(titleLabel)
-        addSubview(mailAddressTF)
-        addSubview(loginTF)
-        addSubview(passwordTF)
+        addSubview(mailAddressTextField)
+        addSubview(loginTextField)
+        addSubview(passwordTextField)
         addSubview(stackView)
         stackView.addArrangedSubview(passwordLengthLabel)
         stackView.addArrangedSubview(alphanumericLabel)
         stackView.addArrangedSubview(numericDigitLabel)
         stackView.addArrangedSubview(specialCharacterLabel)
-        addSubview(repeatPasswordTF)
+        addSubview(repeatPasswordTextField)
         addSubview(nextButton)
         addSubview(passworDontMatch)
     }
@@ -228,35 +228,35 @@ extension RegisterView {
             make.height.equalTo(70)
         }
         
-        mailAddressTF.snp.makeConstraints { make in
+        mailAddressTextField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(40)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
             make.height.equalTo(52)
         }
         
-        loginTF.snp.makeConstraints { make in
-            make.top.equalTo(mailAddressTF.snp.bottom).offset(14)
+        loginTextField.snp.makeConstraints { make in
+            make.top.equalTo(mailAddressTextField.snp.bottom).offset(14)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
             make.height.equalTo(52)
         }
         
-        passwordTF.snp.makeConstraints { make in
-            make.top.equalTo(loginTF.snp.bottom).offset(14)
+        passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(loginTextField.snp.bottom).offset(14)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
             make.height.equalTo(52)
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(passwordTF.snp.bottom).offset(8)
+            make.top.equalTo(passwordTextField.snp.bottom).offset(8)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
             make.height.equalTo(80)
         }
         
-        repeatPasswordTF.snp.makeConstraints { make in
+        repeatPasswordTextField.snp.makeConstraints { make in
             make.top.equalTo(stackView.snp.bottom).offset(14)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
@@ -264,20 +264,21 @@ extension RegisterView {
         }
         
         passworDontMatch.snp.makeConstraints { make in
-            make.top.equalTo(repeatPasswordTF.snp.bottom).offset(8)
+            make.top.equalTo(repeatPasswordTextField.snp.bottom).offset(8)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
             make.height.equalTo(18)
         }
         
         nextButton.snp.makeConstraints { make in
-            make.top.equalTo(repeatPasswordTF.snp.bottom).offset(45)
+            make.top.equalTo(repeatPasswordTextField.snp.bottom).offset(45)
             make.leading.equalTo(self).offset(16)
             make.trailing.equalTo(self).offset(-16)
             make.height.equalTo(52)
         }
     }
 }
+
 
 
 

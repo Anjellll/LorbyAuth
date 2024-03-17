@@ -10,7 +10,8 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     private var viewModel: RegisterViewModel
-    let contentView = RegisterView()
+    private var contentView = RegisterView()
+    let networkLayer = NetworkLayer.shared
     
      init(viewModel: RegisterViewModel) {
          self.viewModel = viewModel
@@ -26,8 +27,8 @@ class RegisterViewController: UIViewController {
         view.backgroundColor = .white
         configurePasswordValidationHandler()
         contentView.nextButton.addTarget(self, action: #selector(enterButtonTapped), for: .touchUpInside)
-        contentView.passwordTF.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
-        contentView.repeatPasswordTF.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+        contentView.passwordTextField.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
+        contentView.repeatPasswordTextField.addTarget(self, action: #selector(passwordTextFieldDidChange), for: .editingChanged)
     }
     
     @objc func enterButtonTapped() {
@@ -37,7 +38,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc func passwordTextFieldDidChange() {
-        viewModel.validatePassword(contentView.passwordTF.text, repeatedPassword: contentView.repeatPasswordTF.text)
+        viewModel.validatePassword(contentView.passwordTextField.text, repeatedPassword: contentView.repeatPasswordTextField.text)
     }
     
     private func configurePasswordValidationHandler() {
