@@ -8,46 +8,67 @@
 import UIKit
 import Alamofire
 
-final class NetworkLayer {
+protocol NetworkLayerDelegate: AnyObject {
+    func authenticationDidComplete(success: Bool)
+}
+
+class NetworkLayer {
     
     static let shared = NetworkLayer()
+    weak var delegate: NetworkLayerDelegate?
     
     private init() { }
     
-    // MARK: - Login
-    func login(userDTO: UserDTO, completion: @escaping (Result<Data?, Error>) -> Void) {
-        request(apiType: .login, parameters: userDTO.dictionary, completion: completion)
-    }
-    
-    // MARK: - Logout
-    func logout(completion: @escaping (Result<Data?, Error>) -> Void) {
-        request(apiType: .logout, completion: completion)
-    }
-    
-    // MARK: - Protected
-    func getProtectedData(completion: @escaping (Result<Data?, Error>) -> Void) {
-        request(apiType: .protected, completion: completion)
-    }
-    
-    // MARK: - Signup
-    func signup(userDTO: UserDTO, completion: @escaping (Result<Data?, Error>) -> Void) {
-        request(apiType: .signup, parameters: userDTO.dictionary, completion: completion)
-    }
-    
-    private func request(apiType: NetworkAPI, parameters: Parameters? = nil, completion: @escaping (Result<Data?, Error>) -> Void) {
-        guard let urlRequest = apiType.url else {
-            let error = NSError(domain: "YourDomain", code: 500, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
-            completion(.failure(error))
+    func register(userCredentials: UserDTO, completion: @escaping (Result<LoginResponse, Error>) -> Void) {
+        guard let url = NetworkAPI.register.url else {
             return
         }
         
-        AF.request(urlRequest, method: apiType.method, parameters: parameters, encoding: JSONEncoding.default).responseData { response in
-            switch response.result {
-            case .success(let data):
-                completion(.success(data))
-            case .failure(let error):
-                completion(.failure(error))
+        AF.request(url, method: .post, parameters: userCredentials, encoder: JSONParameterEncoder.default)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                        completion(.success(loginResponse))
+                    } catch {
+                        completion(.failure(AFError.responseValidationFailed(reason: .dataFileNil)))
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
+    }
+    
+    func login(loginCredentials: UserLoginDTO, completion: @escaping (Result<LoginResponse, Error>) -> Void) {
+        guard let url = NetworkAPI.login.url else {
+            return
         }
+        
+        AF.request(url, method: .post, parameters: loginCredentials, encoder: JSONParameterEncoder.default)
+            .validate()
+            .responseData { [weak self] response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let loginResponse = try JSONDecoder().decode(LoginResponse.self, from: data)
+                        completion(.success(loginResponse))
+                        DispatchQueue.main.async {
+                            self?.delegate?.authenticationDidComplete(success: true)
+                        }
+                    } catch {
+                        completion(.failure(AFError.responseSerializationFailed(reason: .inputDataNilOrZeroLength)))
+                        DispatchQueue.main.async {
+                            self?.delegate?.authenticationDidComplete(success: false)
+                        }
+                    }
+                case .failure(let error):
+                    completion(.failure(error))
+                    DispatchQueue.main.async {
+                        self?.delegate?.authenticationDidComplete(success: false)
+                    }
+                }
+            }
     }
 }

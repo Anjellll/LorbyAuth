@@ -10,51 +10,37 @@ import Alamofire
 
 enum NetworkAPI {
     
-    // MARK: - GET
-    case protected
-    
     // MARK: - POST
     case login
-    case logout
-    case signup
+    case register
     
     private var scheme: String {
-        return "http"
+        return "https"
     }
     
     private var host: String {
-        return "www.marina-backender.org.kg"
+        return "troubled-eyes-production.up.railway.app"
     }
-    
+
     private var path: String {
         switch self {
         case .login:
-            return "/login/"
-        case .logout:
-            return "/logout/"
-        case .protected:
-            return "/protected/"
-        case .signup:
-            return "/signup/"
+            return "/api/v1/auth/login"
+        case .register:
+            return "/api/v1/auth/register"
         }
     }
     
     internal var method: HTTPMethod {
         switch self {
-        case .login, .signup:
+        case .login, .register:
             return .post
-        case .logout:
-            return .post
-        case .protected:
-            return .get
         }
     }
     
     internal var parameters: Parameters? {
         switch self {
-        case .login, .logout, .signup:
-            return nil // !
-        case .protected:
+        case .login, .register:
             return nil
         }
     }

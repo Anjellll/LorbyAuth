@@ -10,14 +10,14 @@ import SnapKit
 
 class AuthorizationView: UIView {
     
-    let authorizationImage: UIImageView = {
+    private let authorizationImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "earthIcon")
         image.contentMode = .scaleAspectFill
         return image
     }()
     
-    let welcomeBackLabel: UILabel = {
+    private let welcomeBackLabel: UILabel = {
         let label = UILabel()
         label.text = "Вэлком Бэк!"
         label.font = UIFont(name: "Avenir Next Medium", size: 25)
@@ -25,13 +25,13 @@ class AuthorizationView: UIView {
         return label
     }()
     
-    let userNameTF: CustomTextField = {
+    private(set) var userNameTF: CustomTextField = {
        let textField = CustomTextField()
         textField.placeholder = "Введи туда-сюда логин"
         return textField
     }()
     
-    let passwordTF: CustomTextField = {
+    private(set) var passwordTF: CustomTextField = {
         let textField = CustomTextField()
         textField.placeholder = "Пароль (тоже введи)"
         textField.isSecureTextEntry = true
@@ -47,7 +47,7 @@ class AuthorizationView: UIView {
         return textField
     }()
     
-    let enterButton: UIButton = {
+    private var enterButton: UIButton = {
        let button = UIButton()
         button.backgroundColor = .black
         button.layer.cornerRadius = 11
@@ -59,9 +59,9 @@ class AuthorizationView: UIView {
         return button
     }()
     
-    let createNewAccountButton: UIButton = {
+    private var createNewAccountButton: UIButton = {
        let button = UIButton()
-       let buttonText = "У меня  еще нет аккаунта"
+       let buttonText = "У меня еще нет аккаунта"
         button.setTitle(buttonText, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont(name: "Avenir Next Bold", size: 16)

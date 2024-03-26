@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol RegistrationContentViewDelegate: AnyObject {
+    func checkPassword(password: String)
+    func nextButtonTapped(user: UserDTO)
+}
+
 class RegisterView: UIView {
+    
+    weak var delegate: RegistrationContentViewDelegate?
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -19,9 +26,10 @@ class RegisterView: UIView {
         return label
     }()
     
-    lazy var mailAddressTextField: CustomTextField = {
+    private(set) var mailAddressTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.text = "kattoobekovaalsu@xmail.ru"
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
         textField.attributedPlaceholder = NSAttributedString(
             string: "Введи адрес почты",
@@ -33,7 +41,7 @@ class RegisterView: UIView {
         return textField
     }()
     
-    lazy var loginTextField: CustomTextField = {
+    private(set) var loginTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -48,7 +56,7 @@ class RegisterView: UIView {
         return textField
     }()
     
-    lazy var passwordTextField: CustomTextField = {
+    private(set) var passwordTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -72,7 +80,7 @@ class RegisterView: UIView {
         return textField
     }()
     
-    let passwordLengthLabel: UILabel = {
+    private lazy var passwordLengthLabel: UILabel = {
         let label = UILabel()
         label.text = "· От 8 до 15 символов"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -81,7 +89,7 @@ class RegisterView: UIView {
         return label
     }()
     
-    let alphanumericLabel: UILabel = {
+    private lazy var alphanumericLabel: UILabel = {
         let label = UILabel()
         label.text = "· Строчные и прописные буквы"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +98,7 @@ class RegisterView: UIView {
         return label
     }()
     
-    let numericDigitLabel: UILabel = {
+    private lazy var numericDigitLabel: UILabel = {
         let label = UILabel()
         label.text = "· Минимум 1 цифра"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -99,7 +107,7 @@ class RegisterView: UIView {
         return label
     }()
     
-    let specialCharacterLabel: UILabel = {
+    private lazy var specialCharacterLabel: UILabel = {
         let label = UILabel()
         label.text = "· Минимум 1 спецсимвол (!, #, $...)"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +116,7 @@ class RegisterView: UIView {
         return label
     }()
     
-    private let stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -116,7 +124,7 @@ class RegisterView: UIView {
         return stack
     }()
     
-    lazy var repeatPasswordTextField: CustomTextField = {
+    private(set) var repeatPasswordTextField: CustomTextField = {
         let textField = CustomTextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.font = UIFont(name: "Avenir Next Medium", size: 16)
@@ -135,11 +143,12 @@ class RegisterView: UIView {
         button.frame = CGRect(x: CGFloat(textField.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.addTarget(self, action: #selector(toggleRepeatPasswordVisible), for: .touchUpInside)
         textField.rightView = button
+        
         textField.rightViewMode = .always
         return textField
     }()
     
-    let passworDontMatch: UILabel = {
+    private var passworDontMatch: UILabel = {
         let label = UILabel()
         label.text = "Пароли не совпадают"
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -149,7 +158,7 @@ class RegisterView: UIView {
         return label
     }()
     
-    let nextButton: UIButton = {
+    private(set) var nextButton: UIButton = {
         let button = UIButton()
         button.setTitle("Далее", for: .normal)
         button.backgroundColor = .black
@@ -210,6 +219,7 @@ extension RegisterView {
         addSubview(mailAddressTextField)
         addSubview(loginTextField)
         addSubview(passwordTextField)
+
         addSubview(stackView)
         stackView.addArrangedSubview(passwordLengthLabel)
         stackView.addArrangedSubview(alphanumericLabel)
@@ -278,8 +288,4 @@ extension RegisterView {
         }
     }
 }
-
-
-
-
 

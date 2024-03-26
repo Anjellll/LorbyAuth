@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        contentView.exitButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
+        contentView.logOutButton.addTarget(self, action: #selector(exitButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {

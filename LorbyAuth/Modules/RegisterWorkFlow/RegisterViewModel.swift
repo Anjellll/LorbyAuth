@@ -5,14 +5,14 @@
 //  Created by anjella on 8/3/24.
 //
 
-import UIKit
+import Foundation
 
-class RegisterViewModel {
-//    var username: String?
-//    var email: String?
-//    var password: String?
-//    var confirmPassword: String?
+protocol RegistrationViewModelProtocol: AnyObject {
+    func validatePassword(_ password: String?, repeatedPassword: String?)
+    func registerUser(_ user: UserDTO, completion: @escaping (Bool) -> Void)
+}
 
+class RegisterViewModel: RegistrationViewModelProtocol {
     var passwordValidationResult: ((Bool, Bool, Bool, Bool, Bool) -> Void)?
 
     func validatePassword(_ password: String?, repeatedPassword: String?) {
@@ -31,7 +31,19 @@ class RegisterViewModel {
     }
 
     private func notifyValidationResult(_ isLengthValid: Bool, _ isAlphanumeric: Bool, _ containsDigit: Bool, _ containsSpecialCharacter: Bool, _ passwordsMatch: Bool) {
-
         passwordValidationResult?(isLengthValid, isAlphanumeric, containsDigit, containsSpecialCharacter, passwordsMatch)
+    }
+    
+    func registerUser(_ user: UserDTO, completion: @escaping (Bool) -> Void) {
+        NetworkLayer.shared.register(userCredentials: user) { result in
+            switch result {
+            case .success:
+                print("Пользователь успешно зарегистрирован")
+                completion(true)
+            case .failure(let error):
+                print("Ошибка при регистрации пользователя: \(error.localizedDescription)")
+                completion(false)
+            }
+        }
     }
 }

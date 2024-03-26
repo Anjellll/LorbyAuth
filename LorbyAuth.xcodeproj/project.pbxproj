@@ -27,6 +27,9 @@
 		218BF7652BA63BE300D33E3B /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF7642BA63BE300D33E3B /* NetworkLayer.swift */; };
 		218BF7672BA63C6B00D33E3B /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF7662BA63C6B00D33E3B /* UserDTO.swift */; };
 		218BF76A2BA64D4100D33E3B /* NetworkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218BF7692BA64D4100D33E3B /* NetworkAPI.swift */; };
+		218FB0AD2BACEF430033F877 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 218FB0AC2BACEF430033F877 /* LoginResponse.swift */; };
+		21DE6FA12BB0C8ED00C3816F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE6FA02BB0C8ED00C3816F /* NotificationView.swift */; };
+		21DE6FA32BB0D0BC00C3816F /* UserLoginDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE6FA22BB0D0BC00C3816F /* UserLoginDTO.swift */; };
 		601DF020DA89B22A82391530 /* Pods_LorbyAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +56,9 @@
 		218BF7642BA63BE300D33E3B /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		218BF7662BA63C6B00D33E3B /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
 		218BF7692BA64D4100D33E3B /* NetworkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPI.swift; sourceTree = "<group>"; };
+		218FB0AC2BACEF430033F877 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		21DE6FA02BB0C8ED00C3816F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		21DE6FA22BB0D0BC00C3816F /* UserLoginDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginDTO.swift; sourceTree = "<group>"; };
 		49267E3E4B4AEFCAEF43C89E /* Pods_LorbyAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LorbyAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DC1F9BCBCEFE1CE9A79896 /* Pods-LorbyAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.debug.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.debug.xcconfig"; sourceTree = "<group>"; };
 		E9C0AC77A17A6F33B596BECF /* Pods-LorbyAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LorbyAuth.release.xcconfig"; path = "Target Support Files/Pods-LorbyAuth/Pods-LorbyAuth.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +158,7 @@
 		218BF6D02B9A5F8400D33E3B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				21DE6F9D2BB0C8AA00C3816F /* NotificationView */,
 				218BF6D12B9A5F9000D33E3B /* CustomTextFiled */,
 			);
 			path = Common;
@@ -199,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				218BF7662BA63C6B00D33E3B /* UserDTO.swift */,
+				218FB0AC2BACEF430033F877 /* LoginResponse.swift */,
+				21DE6FA22BB0D0BC00C3816F /* UserLoginDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -218,6 +227,14 @@
 				218BF7692BA64D4100D33E3B /* NetworkAPI.swift */,
 			);
 			path = NetworkAPI;
+			sourceTree = "<group>";
+		};
+		21DE6F9D2BB0C8AA00C3816F /* NotificationView */ = {
+			isa = PBXGroup;
+			children = (
+				21DE6FA02BB0C8ED00C3816F /* NotificationView.swift */,
+			);
+			path = NotificationView;
 			sourceTree = "<group>";
 		};
 		3A85C2A90A77FDC9DBB7CD74 /* Pods */ = {
@@ -353,6 +370,7 @@
 			files = (
 				218BF6F52B9B1E6100D33E3B /* MailSendViewController.swift in Sources */,
 				218BF6CB2B9A5EBA00D33E3B /* AuthorizationViewModel.swift in Sources */,
+				21DE6FA12BB0C8ED00C3816F /* NotificationView.swift in Sources */,
 				218BF69A2B8FE04600D33E3B /* AuthorizationViewController.swift in Sources */,
 				218BF6D82B9A6A9000D33E3B /* RegisterViewController.swift in Sources */,
 				218BF7672BA63C6B00D33E3B /* UserDTO.swift in Sources */,
@@ -364,8 +382,10 @@
 				218BF6E62B9A6DE000D33E3B /* MainView.swift in Sources */,
 				218BF76A2BA64D4100D33E3B /* NetworkAPI.swift in Sources */,
 				218BF6E02B9A6CB800D33E3B /* MainViewController.swift in Sources */,
+				218FB0AD2BACEF430033F877 /* LoginResponse.swift in Sources */,
 				218BF6F72B9B1E7700D33E3B /* MailSendViewModel .swift in Sources */,
 				218BF6F92B9B1E8F00D33E3B /* MailSendView.swift in Sources */,
+				21DE6FA32BB0D0BC00C3816F /* UserLoginDTO.swift in Sources */,
 				218BF6EA2B9B0F6100D33E3B /* RegisterView.swift in Sources */,
 				218BF6CF2B9A5F3500D33E3B /* AuthorizationView.swift in Sources */,
 				218BF6982B8FE04600D33E3B /* SceneDelegate.swift in Sources */,

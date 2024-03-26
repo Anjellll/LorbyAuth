@@ -9,7 +9,7 @@ import UIKit
 
 class MainView: UIView {
     
-    let welcomeBackTitle: UILabel = {
+    private lazy var welcomeBackTitle: UILabel = {
         let label = UILabel()
         label.text = "С возвращением!"
         label.font = UIFont(name: "Avenir Next Medium", size: 24)
@@ -17,7 +17,7 @@ class MainView: UIView {
         return label
     }()
     
-    let subtitleLabel: UILabel = {
+    private lazy var subtitleLabel: UILabel = {
         let label = UILabel()
         label.text = "Lorby - твой личный репетитор"
         label.font = UIFont(name: "Avenir Next", size: 20)
@@ -25,14 +25,14 @@ class MainView: UIView {
         return label
     }()
     
-    let lorbyIcon: UIImageView = {
+    private lazy var lorbyIcon: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "lorbyIcon")
         image.contentMode = .scaleAspectFill
         return image
     }()
     
-    let exitButton: UIButton = {
+    private(set) var logOutButton: UIButton = {
         let button = UIButton()
         button.setTitleColor(.white, for: .normal)
         let buttonTitle = "Выйти"
@@ -64,7 +64,7 @@ extension MainView {
         addSubview(welcomeBackTitle)
         addSubview(subtitleLabel)
         addSubview(lorbyIcon)
-        addSubview(exitButton)
+        addSubview(logOutButton)
     }
     
     private func setUpConstraints() {
@@ -85,7 +85,7 @@ extension MainView {
             make.height.equalTo(lorbyIcon.snp.width)
         }
         
-        exitButton.snp.makeConstraints { make in
+        logOutButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().inset(60)
             make.width.equalTo(311)
